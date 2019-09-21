@@ -14,8 +14,6 @@ from bs4 import BeautifulSoup
 import json
 import codecs
 
-
-
 def Beijing_time():
     r=requests.get('https://www.baidu.com')
     t=time.strptime(r.headers['date'],'%a, %d %b %Y %H:%M:%S GMT')
@@ -134,9 +132,13 @@ while(1):
     print("---------------------------检索租号玩---------------------------")
     for i in names:
         try:
-            c=zuhaowan_search(i)
-            idnum=c[1]
-            condition=c[0]
+            try:
+                c=zuhaowan_search(i)
+                idnum=c[1]
+                condition=c[0]
+            except:
+                print(i,"在租号玩中查找失败")
+                continue
             print(i,'-当前状态-',condition)
             if(condition=="出租中"):
                 try:
@@ -161,16 +163,20 @@ while(1):
 
         except:
             print("此账号异常",i)
-            #print(traceback.format_exc())
+            print(traceback.format_exc())
             continue
             
     print("---------------------------检索u租号---------------------------")     
     for i in names:
         #print(i)
         try:
-            c=uzuhao_search(i)
-            idnum=c[2]
-            condition=c[0]
+            try:
+                c=uzuhao_search(i)
+                idnum=c[2]
+                condition=c[0]
+            except:
+                print(i,"在U租号中查找失败")
+                continue
             #1待审核 2审核未通过  3待租 4下架
             if(c[1]==0):
                 cs="出租中"
@@ -207,7 +213,7 @@ while(1):
                     print('***租号玩***',time.asctime( time.localtime(time.time()) ),zuhaowan_onrent(idnum1),i)
         except:
             print("此账号异常",i)
-            #print(traceback.format_exc())
+            print(traceback.format_exc())
             continue
 
 
