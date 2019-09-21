@@ -107,13 +107,13 @@ def uzuhao_search(idname):
     return (condition,rent,idnum)
 
 def uzuhao_onrent(idnum):
-    url_onrent="https://www.uhaozu.com/goods/shelves/"+idnum
+    url_onrent="https://www.uhaozu.com/goods/shelves/"+str(idnum)
     r=requests.post(url_onrent,headers=headers,cookies=cookie1)
     d=json.loads(r.text)
     return d['responseMsg']
 
 def uzuhao_offrent(idnum):
-    url_offrent="https://www.uhaozu.com/goods/unShelves/"+idnum
+    url_offrent="https://www.uhaozu.com/goods/unShelves/"+str(idnum)
     r=requests.post(url_offrent,headers=headers,cookies=cookie1)
     d=json.loads(r.text)
     return d['responseMsg']
