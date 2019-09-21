@@ -131,6 +131,7 @@ except:
 while(1):
     print("---------------------------检索租号玩---------------------------")
     for i in names:
+        time.sleep(1)
         try:
             try:
                 c=zuhaowan_search(i)
@@ -169,6 +170,7 @@ while(1):
     print("---------------------------检索u租号---------------------------")     
     for i in names:
         #print(i)
+        time.sleep(1)
         try:
             try:
                 c=uzuhao_search(i)
