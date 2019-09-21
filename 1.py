@@ -149,7 +149,7 @@ while(1):
                 idnum1=v[2]
                 condition1=v[0]
                 if(condition1==3 and v[1]==1):    #待租
-                    print('***U租号***',time.asctime( time.localtime(time.time()) ),uzuhao_offrent(idnum1),i)
+                    print('***U租号***',time.asctime( time.localtime(time.time()) ),uzuhao_offrent(idnum1),i,'下架')
             if(condition=="待租"):
                 try:
                     v=uzuhao_search(i)
@@ -159,7 +159,7 @@ while(1):
                 idnum1=v[2]
                 condition1=v[0]
                 if(condition1==4):                  #下架
-                    print('***U租号***',time.asctime( time.localtime(time.time()) ),uzuhao_onrent(idnum1),i)
+                    print('***U租号***',time.asctime( time.localtime(time.time()) ),uzuhao_onrent(idnum1),i,'上架')
 
         except:
             print("此账号异常",i)
